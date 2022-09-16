@@ -13,6 +13,7 @@ namespace Deliverable1
         public static int numSandwiches { get; set; }
         public static int totalJarsPeanutButter { get; set; }
         public static int totalJarsJelly { get; set; }
+        public static string doAgain { get; set; }
 
         const int TBSP_JAR_PB = 32;
         const int TSP_JAR_JELLY = 48;
@@ -25,20 +26,30 @@ namespace Deliverable1
         {
             Console.WriteLine("Hello!");
 
-            Console.Write("How many people?   ");
+            do
+            {
+                Console.Write("How many people?");
 
-            numPeople = int.Parse(Console.ReadLine());
-            numSandwiches = numPeople * SANDWICHES_PER_PERSON;            
-            totalSlicesNeeded = numSandwiches * SLICES_PER_SANDWICH;
-            totalLoavesNeeded = totalSlicesNeeded / SLICES_PER_LOAF;
-            tbspPeanutButter = numSandwiches * TBSP_PB_PER_SANDWICH;
-            tspJelly = numSandwiches * TSP_JELLY_PER_SANDWICH;
-            totalJarsPeanutButter = tbspPeanutButter / TBSP_JAR_PB;
-            totalJarsJelly = tspJelly / TSP_JAR_JELLY;
+                numPeople = int.Parse(Console.ReadLine());
+                numSandwiches = numPeople * SANDWICHES_PER_PERSON;
+                totalSlicesNeeded = numSandwiches * SLICES_PER_SANDWICH;
+                totalLoavesNeeded = totalSlicesNeeded / SLICES_PER_LOAF;
+                tbspPeanutButter = numSandwiches * TBSP_PB_PER_SANDWICH;
+                tspJelly = numSandwiches * TSP_JELLY_PER_SANDWICH;
+                totalJarsPeanutButter = tbspPeanutButter / TBSP_JAR_PB;
+                totalJarsJelly = tspJelly / TSP_JAR_JELLY;
 
-            Console.WriteLine("We need {0} slices of bread, which means we need {1} loaves of bread.", totalSlicesNeeded, totalLoavesNeeded);
-            Console.WriteLine("We need {0} tbsp of peanut butter, which means we'll need {1} jars of peanut butter.", tbspPeanutButter, totalJarsPeanutButter);
-            Console.WriteLine("We need {0} tsp of jelly, which means we'll need {1} jars of jelly.", tspJelly, totalJarsJelly);
+                Console.WriteLine("We need {0} slices of bread, which means we need {1} loaves of bread.", totalSlicesNeeded, totalLoavesNeeded);
+                Console.WriteLine("We need {0} tbsp of peanut butter, which means we'll need {1} jars of peanut butter.", tbspPeanutButter, totalJarsPeanutButter);
+                Console.WriteLine("We need {0} tsp of jelly, which means we'll need {1} jars of jelly.", tspJelly, totalJarsJelly);
+
+                Console.WriteLine("Repeat?");
+                doAgain = Console.ReadLine();
+                doAgain = doAgain.ToUpper();
+
+            } while (doAgain == "Y" || doAgain == "YES");
+
+            Console.WriteLine("Goodbye!");            
 
         }
     }
