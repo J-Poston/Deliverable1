@@ -33,10 +33,10 @@ namespace Deliverable1
                 numPeople = int.Parse(Console.ReadLine());
                 numSandwiches = numPeople * SANDWICHES_PER_PERSON;
                 totalSlicesNeeded = numSandwiches * SLICES_PER_SANDWICH;
-                totalLoavesNeeded = totalSlicesNeeded / SLICES_PER_LOAF;
+                totalLoavesNeeded = (int)Math.Ceiling((decimal)totalSlicesNeeded / (decimal)SLICES_PER_LOAF);
                 tbspPeanutButter = numSandwiches * TBSP_PB_PER_SANDWICH;
                 tspJelly = numSandwiches * TSP_JELLY_PER_SANDWICH;
-                totalJarsPeanutButter = tbspPeanutButter / TBSP_JAR_PB;
+                totalJarsPeanutButter = (int)Math.Ceiling((decimal)tbspPeanutButter / (decimal)TBSP_JAR_PB);
                 totalJarsJelly = tspJelly / TSP_JAR_JELLY;
 
                 Console.WriteLine("We need {0} slices of bread, which means we need {1} loaves of bread.", totalSlicesNeeded, totalLoavesNeeded);
